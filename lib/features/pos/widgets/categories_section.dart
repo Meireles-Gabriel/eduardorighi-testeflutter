@@ -100,8 +100,6 @@ class CategoriesSection extends StatelessWidget {
               width: 120,
               child: MobileCategoryCard(
                 categoria: displayedCategories[index],
-                isSelected: posStore.selectedCategory?.id ==
-                    displayedCategories[index].id,
                 onTap: () =>
                     posStore.selectCategory(displayedCategories[index]),
               ),
@@ -146,7 +144,6 @@ class CategoriesSection extends StatelessWidget {
         }
         return CategoryCard(
           categoria: categories[index],
-          isSelected: posStore.selectedCategory?.id == categories[index].id,
           onTap: () => posStore.selectCategory(categories[index]),
         );
       },

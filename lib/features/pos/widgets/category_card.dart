@@ -4,13 +4,11 @@ import '../utils/pos_utils.dart';
 
 class CategoryCard extends StatefulWidget {
   final Categoria categoria;
-  final bool isSelected;
   final VoidCallback onTap;
 
   const CategoryCard({
     super.key,
     required this.categoria,
-    required this.isSelected,
     required this.onTap,
   });
 
@@ -37,8 +35,8 @@ class _CategoryCardState extends State<CategoryCard> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: widget.isSelected ? Colors.green : Colors.grey.shade300,
-              width: widget.isSelected ? 2 : 1,
+              color: Colors.grey.shade300,
+              width: 1,
             ),
             color: Colors.white,
             boxShadow: [
@@ -67,18 +65,6 @@ class _CategoryCardState extends State<CategoryCard> {
                         : null,
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.black.withValues(alpha: isHovered ? 0.2 : 0.1),
-                        Colors.black.withValues(alpha: isHovered ? 0.7 : 0.6),
-                      ],
-                    ),
-                  ),
-                ),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Row(
@@ -94,6 +80,13 @@ class _CategoryCardState extends State<CategoryCard> {
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.white,
+                                shadows: [
+                                  Shadow(
+                                    offset: Offset(1, 1),
+                                    blurRadius: 2,
+                                    color: Color.fromRGBO(0, 0, 0, 0.5),
+                                  ),
+                                ],
                               ),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
@@ -105,6 +98,13 @@ class _CategoryCardState extends State<CategoryCard> {
                                 fontSize: 12,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white,
+                                shadows: [
+                                  Shadow(
+                                    offset: Offset(1, 1),
+                                    blurRadius: 2,
+                                    color: Color.fromRGBO(0, 0, 0, 0.5),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -124,13 +124,11 @@ class _CategoryCardState extends State<CategoryCard> {
 
 class MobileCategoryCard extends StatelessWidget {
   final Categoria categoria;
-  final bool isSelected;
   final VoidCallback onTap;
 
   const MobileCategoryCard({
     super.key,
     required this.categoria,
-    required this.isSelected,
     required this.onTap,
   });
 
@@ -142,8 +140,8 @@ class MobileCategoryCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSelected ? Colors.green : Colors.grey.shade300,
-            width: isSelected ? 2 : 1,
+            color: Colors.grey.shade300,
+            width: 1,
           ),
           color: Colors.white,
           boxShadow: [
@@ -171,18 +169,6 @@ class MobileCategoryCard extends StatelessWidget {
                       : null,
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.black.withValues(alpha: 0.1),
-                      Colors.black.withValues(alpha: 0.6),
-                    ],
-                  ),
-                ),
-              ),
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: Column(
@@ -195,6 +181,13 @@ class MobileCategoryCard extends StatelessWidget {
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                         color: Colors.white,
+                        shadows: [
+                          Shadow(
+                            offset: Offset(1, 1),
+                            blurRadius: 2,
+                            color: Color.fromRGBO(0, 0, 0, 0.5),
+                          ),
+                        ],
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -207,6 +200,13 @@ class MobileCategoryCard extends StatelessWidget {
                         fontSize: 10,
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
+                        shadows: [
+                          Shadow(
+                            offset: Offset(1, 1),
+                            blurRadius: 2,
+                            color: Color.fromRGBO(0, 0, 0, 0.5),
+                          ),
+                        ],
                       ),
                     ),
                   ],

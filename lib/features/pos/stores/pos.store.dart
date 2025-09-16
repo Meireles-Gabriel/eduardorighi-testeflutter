@@ -12,6 +12,10 @@ class PosStore = _PosStoreBase with _$PosStore;
 abstract class _PosStoreBase with Store {
   final catalogStore = GetIt.I<CatalogStore>();
 
+  _PosStoreBase() {
+    initStore();
+  }
+
   @observable
   String searchQuery = '';
 
@@ -23,6 +27,14 @@ abstract class _PosStoreBase with Store {
 
   @observable
   int maxCategoriesInRow = 6;
+
+  @action
+  void initStore() {
+    // Auto-select the first category when store is initialized
+    if (catalogStore.categorias.isNotEmpty && selectedCategory == null) {
+      selectedCategory = catalogStore.categorias.first;
+    }
+  }
 
   @action
   void updateSearchQuery(String query) {
