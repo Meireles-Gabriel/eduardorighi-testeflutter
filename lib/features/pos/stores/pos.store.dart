@@ -46,12 +46,10 @@ abstract class _PosStoreBase with Store {
     }
 
     return catalogStore.categorias.where((categoria) {
-      // Search in category name
       final categoryNameMatch =
           categoria.nome?.toLowerCase().contains(searchQuery.toLowerCase()) ??
               false;
 
-      // Search in item names within the category
       final itemsMatch = categoria.itens?.any((item) =>
               item.nome.toLowerCase().contains(searchQuery.toLowerCase())) ??
           false;
