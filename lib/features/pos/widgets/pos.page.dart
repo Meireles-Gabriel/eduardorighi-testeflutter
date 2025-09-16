@@ -24,15 +24,17 @@ class _PosPageState extends State<PosPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          children: [
-            PosHeader(posStore: posStore),
-            Expanded(
-              child: Observer(
-                builder: (_) => _buildContent(),
+        child: Observer(
+          builder: (_) => CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: PosHeader(posStore: posStore),
               ),
-            ),
-          ],
+              SliverToBoxAdapter(
+                child: _buildContent(),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -48,18 +50,13 @@ class _PosPageState extends State<PosPage> {
           child: CategoriesSection(posStore: posStore),
         ),
         const SizedBox(height: 24),
-        Expanded(
-          child: Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.grey.shade100,
-            ),
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(16),
-              physics: const AlwaysScrollableScrollPhysics(),
-              child: ProductsSection(posStore: posStore),
-            ),
+        Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Colors.grey.shade100,
           ),
+          padding: const EdgeInsets.all(16),
+          child: ProductsSection(posStore: posStore),
         ),
       ],
     );

@@ -5,11 +5,13 @@ import '../utils/pos_utils.dart';
 class CategoryCard extends StatefulWidget {
   final Categoria categoria;
   final VoidCallback onTap;
+  final bool isSelected;
 
   const CategoryCard({
     super.key,
     required this.categoria,
     required this.onTap,
+    this.isSelected = false,
   });
 
   @override
@@ -35,8 +37,8 @@ class _CategoryCardState extends State<CategoryCard> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: Colors.grey.shade300,
-              width: 1,
+              color: widget.isSelected ? Colors.green : Colors.grey.shade300,
+              width: widget.isSelected ? 3 : 1,
             ),
             color: Colors.white,
             boxShadow: [
@@ -125,11 +127,13 @@ class _CategoryCardState extends State<CategoryCard> {
 class MobileCategoryCard extends StatelessWidget {
   final Categoria categoria;
   final VoidCallback onTap;
+  final bool isSelected;
 
   const MobileCategoryCard({
     super.key,
     required this.categoria,
     required this.onTap,
+    this.isSelected = false,
   });
 
   @override
@@ -140,8 +144,8 @@ class MobileCategoryCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: Colors.grey.shade300,
-            width: 1,
+            color: isSelected ? Colors.green : Colors.grey.shade300,
+            width: isSelected ? 3 : 1,
           ),
           color: Colors.white,
           boxShadow: [

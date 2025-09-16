@@ -68,10 +68,14 @@ class CategoriesSection extends StatelessWidget {
     final showingAll = posStore.showAllCategories;
     final hasMoreCategories = filteredCategories.length > maxVisibleCategories;
 
-    final displayedCategories = showingAll
-        ? filteredCategories
-        : filteredCategories.take(maxVisibleCategories - 1).toList();
+    // Se está mostrando todas as categorias, usa grid
+    if (showingAll) {
+      return _buildMobileCategoriesGrid(filteredCategories);
+    }
 
+    // Se não está mostrando todas, usa carousel
+    final displayedCategories =
+        filteredCategories.take(maxVisibleCategories - 1).toList();
     final showButton = hasMoreCategories;
     final totalItems = displayedCategories.length + (showButton ? 1 : 0);
 
@@ -87,9 +91,7 @@ class CategoriesSection extends StatelessWidget {
               padding: const EdgeInsets.only(right: 12),
               child: SizedBox(
                 width: 120,
-                child: showingAll
-                    ? _buildShowLessCard(isMobile: true)
-                    : _buildShowMoreCard(),
+                child: _buildShowMoreCard(),
               ),
             );
           }
@@ -102,6 +104,8 @@ class CategoriesSection extends StatelessWidget {
                 categoria: displayedCategories[index],
                 onTap: () =>
                     posStore.selectCategory(displayedCategories[index]),
+                isSelected: posStore.selectedCategory?.id ==
+                    displayedCategories[index].id,
               ),
             ),
           );
@@ -145,6 +149,7 @@ class CategoriesSection extends StatelessWidget {
         return CategoryCard(
           categoria: categories[index],
           onTap: () => posStore.selectCategory(categories[index]),
+          isSelected: posStore.selectedCategory?.id == categories[index].id,
         );
       },
     );
@@ -223,9 +228,7 @@ class CategoriesSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  isMobile
-                      ? Icons.keyboard_arrow_left
-                      : Icons.keyboard_arrow_up,
+                  Icons.keyboard_arrow_up,
                   size: 24,
                   color: Colors.grey.shade600,
                 ),
@@ -243,6 +246,37 @@ class CategoriesSection extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildMobileCategoriesGrid(List<Categoria> filteredCategories) {
+    final totalItems =
+        filteredCategories.length + 1; // +1 para o botão "Ver menos"
+
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 2.0,
+        crossAxisSpacing: 12,
+        mainAxisSpacing: 12,
+      ),
+      itemCount: totalItems,
+      itemBuilder: (context, index) {
+        // Se é o último item, mostra o botão "Ver menos"
+        if (index == filteredCategories.length) {
+          return _buildShowLessCard(isMobile: true);
+        }
+
+        return MobileCategoryCard(
+          categoria: filteredCategories[index],
+          onTap: () => posStore.selectCategory(filteredCategories[index]),
+          isSelected:
+              posStore.selectedCategory?.id == filteredCategories[index].id,
+        );
+      },
     );
   }
 }
