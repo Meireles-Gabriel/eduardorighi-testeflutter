@@ -199,7 +199,7 @@ class MobileCategoryCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      '${categoria.totalItens}',
+                      '${categoria.totalItens} produtos',
                       style: const TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.w400,
