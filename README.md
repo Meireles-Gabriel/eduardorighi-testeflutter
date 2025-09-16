@@ -1,4 +1,21 @@
 
+## Sobre minha participação no teste
+
+Participei deste teste técnico com o objetivo de demonstrar minhas habilidades em desenvolvimento Flutter. Com base na estrutura fornecida e seguindo as especificações do design no Figma, implementei todas as funcionalidades solicitadas de forma limpa e organizada.
+
+**Como executei a tarefa:**
+- **Refatoração e componentização**: Separei o código da página POS em componentes específicos (`PosHeader`, `CategoriesSection`, `ProductsSection`, `CategoryCard`, `ProductCard`) e criei utilitários reutilizáveis (`PosUtils`)
+- **Interface responsiva**: Implementei layouts adaptativos para mobile, tablet e desktop com breakpoints apropriados e componentes específicos para cada contexto
+- **Funcionalidade de busca**: Desenvolvi sistema de busca inteligente que filtra categorias por nome ou por itens contidos nelas
+- **Estados visuais**: Adicionei efeitos de hover, animações e feedbacks visuais para melhorar a experiência do usuário
+- **Gerenciamento de estado**: Utilizei MobX para controle reativo do estado da aplicação com computed properties e actions organizadas
+
+O resultado final mantém toda a funcionalidade original com código limpo, seguindo boas práticas do Flutter/Dart.
+
+Agradeço pela oportunidade de participar deste processo seletivo e aguardo ansiosamente pelos próximos passos. Estou à disposição para esclarecimentos adicionais sobre a implementação.
+
+---
+
 # Teste Técnico - Seleção de Categorias e Itens (Flutter para Windows)
 
 Este teste tem como objetivo avaliar desenvolvedores Flutter na criação de uma página de seleção de categorias e itens, utilizando as bibliotecas já presentes no projeto.
