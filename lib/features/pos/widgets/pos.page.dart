@@ -22,43 +22,42 @@ class _PosPageState extends State<PosPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey.shade100,
       body: SafeArea(
         child: Observer(
           builder: (_) => CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                child: PosHeader(posStore: posStore),
+                child: Container(
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      PosHeader(posStore: posStore),
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        child: CategoriesSection(posStore: posStore),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SliverToBoxAdapter(
+                child: SizedBox(height: 24),
               ),
               SliverToBoxAdapter(
-                child: _buildContent(),
+                child: Container(
+                  padding: const EdgeInsets.all(16),
+                  child: ProductsSection(posStore: posStore),
+                ),
+              ),
+              // Adiciona espaço extra para garantir que o fundo cinza se estenda até o final
+              const SliverToBoxAdapter(
+                child: SizedBox(height: 100),
               ),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildContent() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          color: Colors.white,
-          padding: const EdgeInsets.all(16),
-          child: CategoriesSection(posStore: posStore),
-        ),
-        const SizedBox(height: 24),
-        Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: Colors.grey.shade100,
-          ),
-          padding: const EdgeInsets.all(16),
-          child: ProductsSection(posStore: posStore),
-        ),
-      ],
     );
   }
 }
