@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Teste flutter - Alloy',
       theme: lightTheme(),
-      home: Scaffold(
+      home: const Scaffold(
         body: PosPage(),
       ),
     );

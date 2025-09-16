@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   brasil_fields: ^1.15.0
+  collection: ^1.18.0
   flutter:
     sdk: flutter
   flutter_mobx: ^2.2.1+1

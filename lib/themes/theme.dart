@@ -57,18 +57,18 @@ ThemeData lightTheme() {
       ),
     ),
     switchTheme: SwitchThemeData(
-      trackOutlineColor: const MaterialStatePropertyAll(_grey),
-      thumbColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.selected)) {
+      trackOutlineColor: const WidgetStatePropertyAll(_grey),
+      thumbColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.selected)) {
           return Colors.white;
         }
 
         return Colors.black38;
       }),
-      trackColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.selected)) {
+      trackColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.selected)) {
           return _green;
         }
 
@@ -113,7 +113,7 @@ ThemeData lightTheme() {
       foregroundColor: _green,
       highlightElevation: 0,
     ),
-    cardTheme: const CardTheme(
+    cardTheme: const CardThemeData(
       color: Colors.white,
       surfaceTintColor: Colors.transparent,
       elevation: 8,
@@ -170,7 +170,7 @@ ThemeData lightTheme() {
       surfaceTintColor: Colors.white,
     ),
     checkboxTheme: const CheckboxThemeData(
-      checkColor: MaterialStatePropertyAll(Colors.white),
+      checkColor: WidgetStatePropertyAll(Colors.white),
       side: BorderSide(
         color: Colors.black45,
         width: 2,
@@ -178,17 +178,17 @@ ThemeData lightTheme() {
     ),
     iconButtonTheme: IconButtonThemeData(
       style: ButtonStyle(
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
           ),
         ),
-        side: const MaterialStatePropertyAll(
+        side: const WidgetStatePropertyAll(
           BorderSide(
             color: Colors.black12,
           ),
         ),
-        foregroundColor: const MaterialStatePropertyAll<Color>(
+        foregroundColor: const WidgetStatePropertyAll<Color>(
           Colors.black,
         ),
       ),
@@ -238,7 +238,7 @@ ThemeData lightTheme() {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
           ),
@@ -247,66 +247,62 @@ ThemeData lightTheme() {
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: ButtonStyle(
-        textStyle: MaterialStateProperty.all<TextStyle>(
+        textStyle: WidgetStateProperty.all<TextStyle>(
           const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,
             fontFamily: 'Roboto',
           ),
         ),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
           ),
         ),
-        foregroundColor: MaterialStateProperty.resolveWith<Color>((states) =>
-            states.contains(MaterialState.disabled)
-                ? Colors.grey
-                : Colors.white),
-        padding: const MaterialStatePropertyAll<EdgeInsetsGeometry>(
+        foregroundColor: WidgetStateProperty.resolveWith<Color>((states) =>
+            states.contains(WidgetState.disabled) ? Colors.grey : Colors.white),
+        padding: const WidgetStatePropertyAll<EdgeInsetsGeometry>(
             EdgeInsets.symmetric(horizontal: 24, vertical: 20)),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: ButtonStyle(
-        textStyle: MaterialStateProperty.all<TextStyle>(
+        textStyle: WidgetStateProperty.all<TextStyle>(
           const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,
             fontFamily: 'Roboto',
           ),
         ),
-        overlayColor: const MaterialStatePropertyAll<Color>(
+        overlayColor: const WidgetStatePropertyAll<Color>(
           Colors.black12,
         ),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
           ),
         ),
-        side: const MaterialStatePropertyAll(
+        side: const WidgetStatePropertyAll(
           BorderSide(
             color: Colors.black12,
           ),
         ),
-        foregroundColor: MaterialStateProperty.resolveWith<Color>((states) =>
-            states.contains(MaterialState.disabled)
-                ? Colors.grey
-                : Colors.black),
-        padding: const MaterialStatePropertyAll<EdgeInsetsGeometry>(
+        foregroundColor: WidgetStateProperty.resolveWith<Color>((states) =>
+            states.contains(WidgetState.disabled) ? Colors.grey : Colors.black),
+        padding: const WidgetStatePropertyAll<EdgeInsetsGeometry>(
             EdgeInsets.symmetric(horizontal: 24, vertical: 20)),
       ),
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
           ),
         ),
       ),
     ),
-    dialogTheme: const DialogTheme(
+    dialogTheme: const DialogThemeData(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(16),
@@ -333,14 +329,14 @@ ThemeData lightTheme() {
         focusColor: Colors.red,
       ),
       menuStyle: MenuStyle(
-        backgroundColor: MaterialStateProperty.all(Colors.white),
-        shape: MaterialStatePropertyAll(
+        backgroundColor: WidgetStateProperty.all(Colors.white),
+        shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
         ),
-        surfaceTintColor: MaterialStateProperty.all(Colors.white),
-        elevation: MaterialStateProperty.all(8),
+        surfaceTintColor: WidgetStateProperty.all(Colors.white),
+        elevation: WidgetStateProperty.all(8),
       ),
     ),
     extensions: const [
